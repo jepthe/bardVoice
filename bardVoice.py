@@ -103,7 +103,7 @@ def main():
             #speak_azure('En el momento que me necesites, di "¡Hola, Google!" para activarme.')
             # Continuously listens for wake word locally
             while True:
-                audio = r.listen(source)
+                audio = r.listen(source, timeout=5)
                 try:                                                        
                     with open("wake_detect.wav", "wb") as f:
                         f.write(audio.get_wav_data())
