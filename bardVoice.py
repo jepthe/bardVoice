@@ -7,6 +7,7 @@ import warnings
 import sys
 import argostranslate.package
 import argostranslate.translate
+import time
 
 # Paste your Bard Token (check README.md for where to find yours) 
 token = "XQjMGt9OQJx2nNHyK3XfUSMfPfaEO8wbkaYH0fQZJDT9xfjALkrvXetENDx49DL9G7-KVg."
@@ -102,8 +103,8 @@ def main():
             speak_google('En el momento que me necesites, di "¡Hola, Google!" para activarme.')
             #speak_azure('En el momento que me necesites, di "¡Hola, Google!" para activarme.')
             # Continuously listens for wake word locally
-            while True:
-                audio = r.listen(source, timeout=5)
+            while True:                
+                audio = r.listen(source)
                 try:                                                        
                     with open("wake_detect.wav", "wb") as f:
                         f.write(audio.get_wav_data())
